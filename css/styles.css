@@ -1,0 +1,669 @@
+:root {
+    --color-fucsia: #c2185b; /* fucsia oscuro */
+}
+
+@font-face {
+    /* Floralis Couture */
+    font-family: 'FloralisCoutureLocal';
+    src: local('Floralis Couture'), local('FloralisCouture');
+    font-style: normal;
+
+    /* Lora */
+    font-family: "Lora";
+    src: url("../fonts/Lora/Lora-VariableFont_wght.ttf");
+
+    /* Dancing Script */
+    font-family: "Dancing";
+    src: url("../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf");
+}
+
+body {
+    margin: 0;
+    font-family: 'Adobe Heiti Std R', 'Playfair Display', serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+}
+
+.logo-icono {
+    width: 26px;
+    background-color: white;
+}
+
+.logo-letra {
+    width: 125px;
+}
+
+.logo-icono:hover, .logo-letra:hover {
+    background-color: var(--color-fucsia);
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    transition: color 0.2s;
+    font-family: 'Adobe Heiti Std R', sans-serif;
+    white-space: nowrap;
+}
+
+.social-links a:hover { color: #fff; }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.6);
+    border-radius: 6px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 6px 10px;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 0.85em;
+}
+
+.dropdown-content a:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 80%;
+}
+
+nav a {
+    text-decoration: none;
+    color: #eee;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 0.9em;
+    transition: color 0.2s;
+    /* font-family: 'Adobe Heiti Std R', sans-serif; */
+    font-family: "Lora";
+    white-space: nowrap;
+}
+
+nav a:hover { color: #fff; }
+
+nav a.active-link {
+    color: var(--color-fucsia); /* fucsia oscuro */
+}
+
+nav a:hover { 
+    color: var(--color-fucsia); 
+}
+
+main {
+   padding-top: 80px;
+}
+
+
+.menu-nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.8);
+    display: none;
+}
+
+.menu-nav.open {
+    display: flex;
+}
+
+.menu-nav ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 400px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/*=====================
+    Burger Menu
+=====================*/
+.burger{
+    width:60px;
+    height:60px;
+    border:none;
+    background:none;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.icon{
+    width:36px;
+    height:28px;
+    position:relative;
+}
+
+.bar{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#fff;
+    border-radius:999px;
+    transition:
+        transform .35s ease,
+        opacity .25s ease,
+        top .35s ease;
+}
+
+.bar:nth-child(1){
+    top:0;
+}
+
+.bar:nth-child(2){
+    top:12px;
+}
+
+.bar:nth-child(3){
+    top:24px;
+}
+
+/* Estado abierto */
+
+.burger.active .bar:nth-child(1){
+    top:12px;
+    transform:rotate(45deg);
+}
+
+.burger.active .bar:nth-child(2){
+    opacity:0;
+    transform:translateX(20px);
+}
+
+.burger.active .bar:nth-child(3){
+    top:12px;
+    transform:rotate(-45deg);
+}
+
+
+#burger-container {
+    display: none;
+}
+
+#inicio {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10%;
+    background-color: #000;
+}
+
+#inicio img {
+    width: 48%;
+    max-width: 720px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.9);
+    margin-right: 60px;
+}
+
+.inicio-texto h1 {
+    /* font-family: 'FloralisCoutureLocal', 'Playfair Display', serif; */
+    font-family: "Dancing";
+    font-size: 6rem;
+    /* color: #fff; */
+    color: var(--color-fucsia);
+    margin: 0 0 18px;
+    line-height: 1;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.8), 0 0 8px rgba(194,24,91,0.25);
+    opacity: 0;
+    transform: translateY(18px);
+    animation: aparecerTitulo 1.2s ease forwards;
+}
+
+.inicio-texto h2, .titulo-secundario {
+    font-size: 3rem;
+    font-family: "Dancing";
+}
+
+.titulo-secundario, .clase-titulo {
+    color: var(--color-fucsia);
+}
+
+
+@keyframes aparecerTitulo {
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.inicio-texto p {
+    font-family: 'Adobe Heiti Std R', sans-serif;
+    font-size: 1.2rem;
+    color: #aaa;
+    margin: 0;
+}
+
+.content-section {
+    display: none;
+    padding: 80px 10%;
+    min-height: calc(100vh - 80px);
+    background: #000;
+}
+
+.bio-texto {
+    max-width: 900px;
+    line-height: 1.7;
+    font-size: 1.4rem;
+    color: #e5e5e5;
+    text-align: justify;
+}
+
+.bio-texto p {
+    margin-bottom: 1.4em;
+}
+
+.musica-texto {
+    max-width: 900px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    color: #e5e5e5;
+    text-align: justify;
+}
+
+.musica-texto p {
+    margin-bottom: 1.4em;
+}
+
+.content-section.active { display: block; }
+
+.content-section p {
+    font-size: 1.4rem;
+}
+
+/* ===== CLASES ===== */
+.clases-container {
+    max-width: 900px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    color: #e5e5e5;
+    text-align: justify;
+    position: relative;
+}
+
+.clase-bloque {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.clase-titulo {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-family: "Dancing";
+}
+
+.clase-texto p {
+    margin-bottom: 1em;
+}
+
+.clase-divider {
+    width: 60%;
+    height: 1px;
+    background: #333;
+    margin: 40px 0;
+}
+
+/* flor flotante solo en clases */
+.clases-flor {
+    position: fixed;
+    right: 6%;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 120px;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+}
+
+#clases.active ~ .clases-flor,
+body.mostrar-flor .clases-flor {
+    display: block;
+}
+
+#contacto {
+    padding: 10%;
+    background-color: #000;
+    text-align: center;
+}
+
+#contacto h3 {
+    font-family: 'FloralisCoutureLocal', 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid var(--color-fucsia);
+    border-radius: 6px;
+    font-family: inherit;
+    background: #111;
+    color: #fff;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid var(--color-fucsia);
+}   
+
+button {
+    /* background-color: #fff; */
+    background-image: linear-gradient(to right, black, #c2185b);  
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+button:hover { background-color: #ddd; }
+
+footer {
+    background-color: #000;
+    padding: 50px 10% 30px;
+    color: #aaa;
+    font-size: 0.95em;
+    border-top: 1px solid #222;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto 25px;
+}
+
+.footer-info h4 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-family: 'FloralisCoutureLocal', 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.footer-info p {
+    margin: 6px 0;
+    color: #bbb;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #444;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+}
+
+.footer-social a:hover {
+    border-color: var(--color-fucsia);
+    transform: translateY(-2px);
+}
+
+.footer-copy {
+    text-align: center;
+    color: #777;
+    font-size: 0.85em;
+}
+
+.footer-back {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.volver-inline {
+    text-align: right;
+    margin-top: 40px;
+}
+
+.volver-inline a {
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.6px;
+    transition: color 0.2s;
+}
+
+.volver-inline a:hover {
+    color: #fff;
+}
+
+.footer-back a {
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.6px;
+    transition: color 0.2s;
+}
+
+.footer-back a:hover {
+    color: #fff;
+}
+
+.footer-icon {
+    color: white;
+    width: 22px;
+    height: 22px;
+}
+
+
+
+
+/* ========================
+    Pagina gracias
+======================== */
+.gracias-container {
+    text-align: center;
+}
+
+.gracias-container h1 {
+    color: var(--color-fucsia);
+    font-family: "Dancing";
+    font-size: 6.5rem;
+}
+
+.gracias-container p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+
+
+
+/* ========================
+    Media queries
+======================== */
+
+@media (max-width: 1400px) {
+    #inicio img {
+        width: 55%;
+    }
+}
+
+
+@media (max-width: 1300px) {
+    #inicio img {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1150px) {
+    #inicio img {
+        width: 85%;
+    }
+}
+
+
+@media (max-width: 1080px) {
+    #inicio {
+        background-image: url("../img/portada.jpg");
+        background-size: cover;
+        background-position: right;
+        background-repeat: no-repeat;
+        padding: 0;
+    }
+
+    #inicio img {
+        display: none;
+    }
+
+    .inicio-texto {
+        background: rgba(0,0,0,0.5);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        padding: 10px 15px;
+    }
+
+    header nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+    nav { max-width: 100%; gap: 8px; justify-content: center; }
+}
+
+
+@media (max-width: 700px) {
+    
+    header nav {
+        display: block;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .footer-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: row;
+        height: 80px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    button:hover {
+        background-color: black;
+    }
+
+    #burger-container {
+        display: block;
+    }
+
+
+
+}

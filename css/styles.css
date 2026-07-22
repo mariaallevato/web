@@ -258,7 +258,7 @@ main {
 
 .inicio-texto h1 {
     /* font-family: 'FloralisCoutureLocal', 'Playfair Display', serif; */
-    font-family: "Dancing";
+    font-family: "FloralisCoutureLocal";
     font-size: 6rem;
     /* color: #fff; */
     color: var(--color-fucsia);
@@ -272,7 +272,7 @@ main {
 
 .inicio-texto h2, .titulo-secundario {
     font-size: 3rem;
-    font-family: "Dancing";
+    font-family: "FloralisCoutureLocal";
 }
 
 .titulo-secundario, .clase-titulo {

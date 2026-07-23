@@ -113,13 +113,13 @@ document.getElementById("footer-copyright").innerHTML = mensajeFooter;
 // ================================
 
 const sonidos = {
-    inicio: new Audio("audio/01DO.mp3"),
-    bio: new Audio("audio/02RE.mp3"),
-    musica: new Audio("audio/03MI.mp3"),
-    agenda: new Audio("audio/04FA.mp3"),
-    galeria: new Audio("audio/05SOL.mp3"),
-    clases: new Audio("audio/06LA.mp3"),
-    contacto: new Audio("audio/07SI.mp3")
+    inicio: new Audio("AUDIO/01DO.mp3"),
+    bio: new Audio("AUDIO/02RE.mp3"),
+    musica: new Audio("AUDIO/03MI.mp3"),
+    agenda: new Audio("AUDIO/04FA.mp3"),
+    galeria: new Audio("AUDIO/05SOL.mp3"),
+    clases: new Audio("AUDIO/06LA.mp3"),
+    contacto: new Audio("AUDIO/07SI.mp3")
 };
 
 // Precargar y ajustar volumen

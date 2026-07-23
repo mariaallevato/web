@@ -15,6 +15,14 @@
     /* Dancing Script */
     font-family: "Dancing";
     src: url("../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf");
+
+    
+    /* Bodoni Moda */
+     font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+
 }
 
 body {

@@ -74,22 +74,18 @@ let activo = false;
 const burger = document.getElementById("burger");
 const menu = document.querySelector(".menu-nav");
 
-burger.addEventListener("click", function () {
-    //activo = !activo;
-    menu.classList.toggle("open");
-
+burger.addEventListener("click", () => {
     burger.classList.toggle("active");
-    menu.style.display = activo ? "block" : "none";
+    menu.classList.toggle("open");
 });
-
 
 window.addEventListener("resize", () => {
     if (window.innerWidth > 600) {
-        activo = false;
         burger.classList.remove("active");
-        menu.classList.remove("open")
+        menu.classList.remove("open");
     }
 });
+    
 
 
 /////////////////////

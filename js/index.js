@@ -108,3 +108,50 @@ formContacto.addEventListener("submit", () => {
 // Copyright del footer
 let mensajeFooter = `© ${new Date().getFullYear()} María Allevato. Todos los derechos reservados.`
 document.getElementById("footer-copyright").innerHTML = mensajeFooter;
+// ================================
+//// NOTAS MUSICALES DEL MENÚ
+// ================================
+
+const sonidos = {
+    inicio: new Audio("audio/01DO.mp3"),
+    bio: new Audio("audio/02RE.mp3"),
+    musica: new Audio("audio/03MI.mp3"),
+    agenda: new Audio("audio/04FA.mp3"),
+    galeria: new Audio("audio/05SOL.mp3"),
+    clases: new Audio("audio/06LA.mp3"),
+    contacto: new Audio("audio/07SI.mp3")
+};
+
+// Precargar y ajustar volumen
+Object.values(sonidos).forEach(audio => {
+    audio.preload = "auto";
+    audio.volume = 0.45;
+});
+
+document.querySelectorAll("nav a").forEach(enlace => {
+
+    enlace.addEventListener("mouseenter", () => {
+
+        const nombre = enlace.dataset.target;
+
+        if (!nombre) return;
+
+        const sonido = sonidos[nombre];
+
+        if (!sonido) return;
+
+        // Reinicia la nota para que siempre suene desde el principio
+        sonido.pause();
+        sonido.currentTime = 0;
+        sonido.play().catch(() => {});
+
+        // Brillo del texto
+        enlace.classList.add("nota-activa");
+
+        setTimeout(() => {
+            enlace.classList.remove("nota-activa");
+        }, 350);
+
+    });
+
+});

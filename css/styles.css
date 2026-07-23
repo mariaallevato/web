@@ -19,10 +19,11 @@
 
 body {
     margin: 0;
-    font-family: 'Adobe Heiti Std R', 'Playfair Display', serif;
+    font-family: 'Garamond', serif;
     background-color: #000;
-    color: #fff;
+    color: #fdfdfd;
     overflow-x: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 header {
@@ -129,7 +130,7 @@ nav a {
     white-space: nowrap;
 }
 
-nav a:hover { color: #fff; }
+nav a:hover { color: #e00497; }
 
 nav a.active-link {
     color: var(--color-fucsia); /* fucsia oscuro */
@@ -254,29 +255,52 @@ main {
     border-radius: 4px;
     box-shadow: 0 6px 30px rgba(0,0,0,0.9);
     margin-right: 60px;
+    animation: slideIn 1.5s ease forwards;
+    opacity: 0;
+    transform: translateY(18px);
 }
-
+@keyframes slideIn {
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
 .inicio-texto h1 {
-    /* font-family: 'FloralisCoutureLocal', 'Playfair Display', serif; */
-    font-family: "FloralisCoutureLocal";
+     /* font-family: "Bodoni Moda", serif; */
+    font-family: "Bodoni Moda";
     font-size: 6rem;
-    /* color: #fff; */
-    color: var(--color-fucsia);
+    letter-spacing:.1em;
+    font-weight:400;
+    /* color: #F4F1EC; */
+    color: var(--color-verde);
     margin: 0 0 18px;
     line-height: 1;
     text-shadow: 0 4px 18px rgba(0,0,0,0.8), 0 0 8px rgba(194,24,91,0.25);
     opacity: 0;
     transform: translateY(18px);
-    animation: aparecerTitulo 1.2s ease forwards;
+    animation: aparecerTitulo 2.8s ease forwards;
+    text-shadow:0 0 8px rgba(250, 236, 175, 0.527),
+    0 0 18px rgba(233, 210, 3, 0.377),
+    2px 2px 8px rgba(75, 74, 73, 0.199);
 }
 
 .inicio-texto h2, .titulo-secundario {
-    font-size: 3rem;
-    font-family: "FloralisCoutureLocal";
+    
+    font-family:"Bodoni Moda", serif;
+    font-size:3.2rem;
+    letter-spacing:.22em;
+    font-weight:600;
+    text-shadow:
+    0 0 8px rgba(199, 153, 4, 0.356),
+    0 0 18px rgba(192, 142, 3, 0.164),
+    2px 2px 8px rgba(201, 172, 10, 0.158);
+    
 }
 
 .titulo-secundario, .clase-titulo {
     color: var(--color-fucsia);
+    font-family: "Dancing"
+    
 }
 
 
@@ -290,7 +314,7 @@ main {
 .inicio-texto p {
     font-family: 'Adobe Heiti Std R', sans-serif;
     font-size: 1.2rem;
-    color: #aaa;
+    color: #ffedfd;
     margin: 0;
 }
 
@@ -303,9 +327,9 @@ main {
 
 .bio-texto {
     max-width: 900px;
-    line-height: 1.7;
-    font-size: 1.4rem;
-    color: #e5e5e5;
+    line-height: 1.4;
+    font-size: 1.2rem;
+    color: #ee97ee;
     text-align: justify;
 }
 
@@ -317,7 +341,7 @@ main {
     max-width: 900px;
     line-height: 1.7;
     font-size: 1.05rem;
-    color: #e5e5e5;
+    color: #ee97ee;
     text-align: justify;
 }
 
@@ -336,7 +360,7 @@ main {
     max-width: 900px;
     line-height: 1.7;
     font-size: 1.05rem;
-    color: #e5e5e5;
+    color: #ee97ee;
     text-align: justify;
     position: relative;
 }

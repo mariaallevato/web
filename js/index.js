@@ -70,7 +70,7 @@ document.querySelectorAll('.volver-inicio').forEach(btn => {
 ///////////////
 // Burger menu
 
-//let activo = false;
+let activo = false;
 const burger = document.getElementById("burger");
 const menu = document.querySelector(".menu-nav");
 
@@ -119,14 +119,42 @@ const sonidos = {
     agenda: new Audio("AUDIO/04FA.mp3"),
     galeria: new Audio("AUDIO/05SOL.mp3"),
     clases: new Audio("AUDIO/06LA.mp3"),
-    contacto: new Audio("AUDIO/07SI.mp3")
+    contacto: new Audio("AUDIO/07SI.mp3"),
+    fin: new Audio("AUDIO/08DO.mp3")
 };
+
 
 // Precargar y ajustar volumen
 Object.values(sonidos).forEach(audio => {
     audio.preload = "auto";
     audio.volume = 0.45;
 });
+
+// PRUEBA DE SECUENCIA
+    const secuenciaCorrecta = [
+    "inicio",
+    "bio",
+    "musica",
+    "agenda",
+    "galeria",
+    "clases",
+    "contacto"
+];
+
+let progreso = 0;
+    function mostrarEasterEgg() {
+
+    const egg = document.getElementById("easter-egg");
+
+    egg.classList.add("visible");
+
+    setTimeout(() => {
+        egg.classList.remove("visible");
+    }, 4000);
+
+}
+
+    
 
 document.querySelectorAll("nav a").forEach(enlace => {
 
@@ -142,8 +170,29 @@ document.querySelectorAll("nav a").forEach(enlace => {
 
         // Reinicia la nota para que siempre suene desde el principio
         sonido.pause();
-        sonido.currentTime = 0;
+        sonido.currentTime = 0,2;
         sonido.play().catch(() => {});
+        // Verificar secuencia
+if (nombre === secuenciaCorrecta[progreso]) {
+
+    progreso++;
+
+    if (progreso === secuenciaCorrecta.length) {
+
+        sonidos.fin.pause();
+        sonidos.fin.currentTime = 0;
+        sonidos.fin.play();
+
+        mostrarEasterEgg();
+
+        progreso = 0;
+    }
+
+} else {
+
+    progreso = (nombre === secuenciaCorrecta[0]) ? 1 : 0;
+
+}
 
         // Brillo del texto
         enlace.classList.add("nota-activa");
